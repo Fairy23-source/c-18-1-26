@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    int rollNo;                  // normal data member
+    static int studentCount;     // static data member
+
+public:
+    // Constructor
+    Student() {
+        studentCount++;
+    }
+
+    // Set roll number
+    void setRollNo(int r) {
+        rollNo = r;
+    }
+
+    // Display student info
+    void display() {
+        cout << "Roll No: " << rollNo << endl;
+    }
+
+    // Static member function
+    static void showStudentCount() {
+        cout << "Total Students: " << studentCount << endl;
+    }
+};
+
+// Definition of static data member (IMPORTANT)
+int Student::studentCount = 0;
+
+int main() {
+    Student s1, s2, s3;
+
+    s1.setRollNo(101);
+    s2.setRollNo(102);
+    s3.setRollNo(103);
+
+    s1.display();
+    s2.display();
+    s3.display();
+
+    // Calling static member function
+    Student::showStudentCount();
+
+    return 0;
+}
