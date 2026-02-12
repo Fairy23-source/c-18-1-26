@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+class Sample
+{
+    int a, b;   // Private data members
+
+public:
+    // Function to input values
+    void getData(int x, int y)
+    {
+        a = x;
+        b = y;
+    }
+
+    // Declare friend function
+    friend float calculateMean(Sample s);
+};
+
+// Friend function definition78;
+float calculateMean(Sample s)
+{
+    return (s.a + s.b) / 2.0;
+}
+
+int main()
+{
+    Sample obj;
+    obj.getData(10, 20);
+
+    float mean = calculateMean(obj);
+
+    cout << "Mean of a and b is: " << mean;
+
+    return 0;
+}
