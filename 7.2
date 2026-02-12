@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class Sample
+{
+    int x;
+
+public:
+    // Parameterized Constructor
+    Sample(int a)
+    {
+        x = a;
+        cout << "Parameterized Constructor Called" << endl;
+    }
+
+    // Copy Constructor
+    Sample(const Sample &obj)
+    {
+        x = obj.x;
+        cout << "Copy Constructor Called" << endl;
+    }
+
+    // Display function
+    void display()
+    {
+        cout << "Value of x: " << x << endl;
+    }
+};
+
+int main()
+{
+    Sample obj1(10);     // Calls parameterized constructor
+    Sample obj2 = obj1;  // Calls copy constructor
+
+    obj1.display();
+    obj2.display();
+
+    return 0;
+}
