@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Sample
+{
+    char *str;   // String pointer as data member
+
+public:
+    // Constructor
+    Sample()
+    {
+        str = new char[100];   // Dynamically allocate memory
+        cout << "Enter a string: ";
+        cin.getline(str, 100);  // Read string
+    }
+
+    // Display function
+    void display()
+    {
+        cout << "Entered String: " << str << endl;
+    }
+
+    // Destructor
+    ~Sample()
+    {
+        delete[] str;   // Free allocated memory
+        cout << "Memory released successfully." << endl;
+    }
+};
+
+int main()
+{
+    Sample obj;   // Constructor called automatically
+    obj.display();
+
+    return 0;     // Destructor called automatically
+}
